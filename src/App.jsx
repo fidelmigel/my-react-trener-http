@@ -5,18 +5,12 @@ const App = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // axios
-    //   .get("https://hn.algolia.com/api/v1/search?query=react")
-    //  .then((res) => {
-    //    setArticles(res.data.hits);
-    // попередній приклад працює, але на практиці використовують наступний спосіб
-
     const getArticlesData = async () => {
       try {
-        const res = await axios.get(
+        const { data } = await axios.get(
           "https://hn.algolia.com/api/v1/search?query=react"
         );
-        setArticles(res.data.hits);
+        setArticles(data.hits);
       } catch (error) {
         console.error(error);
       }
@@ -30,9 +24,7 @@ const App = () => {
       <ul>
         {articles.map((item) => (
           <li key={item.objectID}>
-            <a href={item.url} target="_blank">
-              {item.title}
-            </a>
+            <a href={item.url}>{item.title}</a>
           </li>
         ))}
       </ul>
