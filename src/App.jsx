@@ -1,6 +1,6 @@
 //import UseContextExample from "./components/UseContextExample/UseContextExample";
 import UseMemoExample from "./components/UseMemoExample";
-//import UseRefRenderCountExample from "./components/UseRefForwardRefExample";
+import UseRefRenderCountExample from "./components/UseRefRenderCountExample";
 //import UseRefStoreValueExample from "./components/UseRefStoreValueExample";
 //import UseRefForwardRefExample from "./components/UseRefForwardRefExample";
 
@@ -10,7 +10,7 @@ const App = () => {
       {/*<Header /> */}
       <main>
         <UseMemoExample />
-        {/*<UseRefRenderCountExample /> */}
+        <UseRefRenderCountExample />
         {/*<UseRefStoreValueExample /> */}
         {/*<UseRefForwardRefExample /> */}
         {/* <UseContextExample /> */}
