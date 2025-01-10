@@ -14,6 +14,15 @@ h2 {
 
 nav a {
   margin-right: 20px; /* Відстань між посиланнями */
-  color: white; /* Білий текст для посилань */
+  color: green; /* Білий текст для посилань */
   text-decoration: none; /* Прибирання підкреслення з посилань */
+}
+
+.link {
+  color: green; /* Білий текст */
+}
+
+.active {
+  font-weight: bold; /* Жирний текст для активного посилання */
+  color: violet;
 }
