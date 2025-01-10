@@ -1,17 +1,13 @@
 import { createRoot } from "react-dom/client";
+import App from "./App";
 import "./index.css";
-import App from "./App.jsx";
+//import 'modern-normalize/modern-normalize.css';
 import { Toaster } from "react-hot-toast";
-import AuthProvider from "./context/AuthProvider/AuthProvider.jsx";
-import LangProvider from "./context/LangProvider/LangProvider.jsx";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <>
-    <LangProvider>
-      <AuthProvider>
-        <App />
-        <Toaster />
-      </AuthProvider>
-    </LangProvider>
-  </>
+  <BrowserRouter>
+    <App />
+    <Toaster />
+  </BrowserRouter>
 );

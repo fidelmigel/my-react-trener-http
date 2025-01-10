@@ -1,16 +1,15 @@
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider.jsx";
-import { LangContext } from "../../context/LangProvider/LangProvider.jsx";
+import styles from "../Header/Header.module.css";
+import { Link } from "react-router-dom";
+
 const Header = () => {
-  const { user, logout } = useContext(AuthContext);
-  const { lang, changeLang } = useContext(LangContext);
   return (
-    <header>
-      <h2> Hooks</h2>
-      <h3>Welcom,{user}</h3>
-      <h3>Lang:{lang}</h3>
-      <button onClick={changeLang}>Swich Lang</button>
-      <button onClick={logout}>Logout</button>
+    <header className={styles.header}>
+      <h2>Routing</h2>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contacts">Contacts</Link>
+      </nav>
     </header>
   );
 };
