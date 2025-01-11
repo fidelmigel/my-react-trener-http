@@ -1,35 +1,34 @@
-//import UseMemoExample from "./components/UseMemoExample";
-//import UseRefRenderCountExample from "./components/UseRefRenderCountExample";
-//import UseRefStoreValueExample from "./components/UseRefStoreValueExample";
-//import UseRefForwardRefExample from "./components/UseRefForwardRefExample";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import { useContext } from "react";
-import { AuthContext } from "./context/AuthProvider/AuthProvider";
-import FormLogin from "./components/FormLogin";
-
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Contacts from "./pages/Contacts/Contacts";
+import NotFound from "./pages/NotFound/NotFound";
+import Aim from "./nestedRoutes/Aim";
+import Team from "./nestedRoutes/Team";
+import Company from "./nestedRoutes/Company";
+import Users from "./pages/Users/Users";
+import UserDetails from "./pages/UserDetails/UserDetails";
+import UserPosts from "./nestedRoutes/UserPosts";
+import UserInfo from "./nestedRoutes/UserInfo";
 const App = () => {
-  const { user, logout } = useContext(AuthContext);
-
-  if (!user) {
-    return <FormLogin />;
-  }
-
   return (
     <div>
       <Header />
-      <main>
-        {/*<UseMemoExample /> */}
-        {/*<UseRefRenderCountExample /> */}
-        {/*<UseRefStoreValueExample /> */}
-        {/*<UseRefForwardRefExample /> */}
-        <h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis,
-          illo incidunt harum laudantium ad ratione at fugiat cupiditate, vero
-          delectus repellendus, labore architecto accusamus recusandae sed esse.
-          Dolore, et possimus.
-        </h2>
-        <button onClick={logout}>Logout</button>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />}>
+          <Route path="aim" element={<Aim />} />
+          <Route path="company" element={<Company />} />
+          <Route path="team" element={<Team />} />
+        </Route>
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:userId" element={<UserDetails />} />
+        <Route path="posts" element={<UserPosts />} />
+        <Route path="info" element={<UserInfo />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 };

@@ -1,17 +1,31 @@
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider.jsx";
-import { LangContext } from "../../context/LangProvider/LangProvider.jsx";
+import styles from "../Header/Header.module.css";
+import { NavLink } from "react-router-dom";
+import clsx from "clsx"; //
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(styles.Link, isActive && styles.active);
+};
+
 const Header = () => {
-  const { user, logout } = useContext(AuthContext);
-  const { lang, changeLang } = useContext(LangContext);
   return (
-    <header>
-      <h2> Hooks</h2>
-      <h3>Welcom,{user}</h3>
-      <h3>Lang:{lang}</h3>
-      <button onClick={changeLang}>Swich Lang</button>
-      <button onClick={logout}>Logout</button>
+    <header className={styles.header}>
+      <h2>Routing</h2>
+      <nav>
+        <NavLink className={buildLinkClass} to="/">
+          Home
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/about">
+          About
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/users">
+          Users
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/contacts">
+          Contacts
+        </NavLink>
+      </nav>
     </header>
   );
 };
+
 export default Header;
